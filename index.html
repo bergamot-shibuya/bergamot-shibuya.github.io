@@ -996,7 +996,7 @@
 <section id="gallery">
   <div class="gallery-inner">
     <p class="section-label">Gallery</p>
-    <h2 class="section-title">赤坂店<em>ギャラリー</em></h2>
+    <h2 class="section-title" id="gallery-title">赤坂店<em>ギャラリー</em></h2>
     <div class="divider"></div>
     <div class="gallery-tabs">
       <button class="gallery-tab active" onclick="switchGallery('akasaka',this)">Akasaka</button>
@@ -1352,6 +1352,11 @@
     document.querySelectorAll('.gallery-tab').forEach(function(t){ t.classList.remove('active'); });
     document.getElementById('gallery-' + store).classList.add('active');
     btn.classList.add('active');
+    var titleEl = document.getElementById('gallery-title');
+    if (titleEl) {
+      var name = (store === 'shibuya') ? '渋谷店' : '赤坂店';
+      titleEl.innerHTML = name + '<em>ギャラリー</em>';
+    }
   };
 
   // ── Shibuya slideshow ──
